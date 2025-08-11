@@ -196,28 +196,28 @@ namespace QuickDotNetExtensions.UnitTests
         public void StringExtensions_RightOrThrow_Should_Throw_When_SourceIsNull()
         {
             string source = null!;
-            Assert.Throws<ArgumentNullException>(() => source.Right(7));
+            Assert.Throws<ArgumentNullException>(() => source.RightOrThrow(7));
         }
 
         [Fact]
         public void StringExtensions_RightOrThrow_Should_Throw_When_LengthIsGreaterThanTheStringLength()
         {
             string source = "this my source";
-            Assert.Throws<ArgumentException>(() => source.Right(777));
+            Assert.Throws<ArgumentException>(() => source.RightOrThrow(777));
         }
 
         [Fact]
         public void StringExtensions_RightOrThrow_Should_ReturnEmptyString_When_StringIsEmptyAndLengthIsZero()
         {
             string source = "";
-            Assert.Equal("", source.Right(0));
+            Assert.Equal("", source.RightOrThrow(0));
         }
 
         [Fact]
         public void StringExtensions_RightOrThrow_Should_ReturnStringInTheRightStartingFromTheLenght_When_Ok()
         {
             string source = "this my source";
-            Assert.Equal(" source", source.Right(7));
+            Assert.Equal(" source", source.RightOrThrow(7));
         }
 
         /********************************************************************************/
