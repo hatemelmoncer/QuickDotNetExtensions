@@ -120,6 +120,52 @@ Namespace: `QuickDotNetExtensions`
 
 ---
 
+## LoggerExtensions
+
+The `LoggerExtensions` class provides a convenient way to automatically log the entry, exit, and elapsed time of a method using `ILogger`. This is especially useful for tracing and performance diagnostics.
+
+### Features
+
+- Logs when a method is entered and exited.
+- Logs the elapsed time in milliseconds.
+- Supports configurable log level (default is `Information`).
+- Simple `using`-based scope.
+
+### Usage
+
+```csharp
+using Microsoft.Extensions.Logging;
+using QuickDotNetExtensions;
+
+public void MyMethod(ILogger logger)
+{
+    using var scope = logger.LogMethodScope(nameof(MyMethod), LogLevel.Information);
+    // Your method logic here
+}
+```
+
+**Sample log output:**
+```
+info: Entering MyMethod
+info: Exiting MyMethod (Elapsed: 15ms)
+```
+
+### Method
+
+```csharp
+IDisposable LogMethodScope(this ILogger logger, string methodName, LogLevel level = LogLevel.Information)
+```
+- `logger`: The `ILogger` instance.
+- `methodName`: The name of the method to log.
+- `level`: The log level (optional, default is `Information`).
+
+---
+
+**Note:**  
+Requires a reference to `Microsoft.Extensions.Logging.Abstractions` version 7.0.0 or later.
+
+---
+
 ## Usage
 
 To use these extensions, simply add the `QuickDotNetExtensions` namespace to your file:
