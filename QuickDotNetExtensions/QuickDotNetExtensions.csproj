@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<PackageId>QuickDotNetExtensions</PackageId>
-		<Version>1.2.0</Version>
+		<Version>1.3.0</Version>
 		<Authors>Hatem El Moncer</Authors>
 		<Description>A set of .NET extensions methods that help doing more quicker development.</Description>
 
